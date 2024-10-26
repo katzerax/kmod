@@ -317,16 +317,10 @@ func _physics_process(delta):
 
 func _process(delta):
 	if controlled: $paint_node._paint_process(delta)
-		# Check for key presses directly using key codes
-	if Input.is_key_pressed(KEY_KP_ADD):  # Numpad Plus
-		player_scale = clamp(player_scale + 0.4 * delta, 0.1, 100)  # Scale up
-	elif Input.is_key_pressed(KEY_KP_SUBTRACT):  # Numpad Minus
-		player_scale = clamp(player_scale - 0.4 * delta, 0.1, 100)  # Scale down
-	elif Input.is_key_pressed(KEY_KP_ENTER):  # Numpad Enter for reset
-		player_scale = 1.0  # Reset to default size
+
 
 func _controlled_process(delta):
-	_get_input()
+	_get_input(delta)
 	_process_movement(delta)
 	_process_timers()
 	_interact_check()
@@ -452,7 +446,7 @@ func _process_timers():
 
 
 
-func _get_input():
+func _get_input(delta):
 	direction = Vector3.ZERO
 	
 	if Input.is_action_just_released("primary_action"): _primary_action_release()
@@ -487,6 +481,13 @@ func _get_input():
 		_bark()
 	if Input.is_action_just_pressed("kiss"):
 		_kiss()
+	
+	if Input.is_key_pressed(KEY_KP_ADD):  # Numpad Plus
+		player_scale = clamp(player_scale + 0.4 * delta, 0.1, 100)  # Scale up
+	elif Input.is_key_pressed(KEY_KP_SUBTRACT):  # Numpad Minus
+		player_scale = clamp(player_scale - 0.4 * delta, 0.1, 100)  # Scale down
+	elif Input.is_key_pressed(KEY_KP_ENTER):  # Numpad Enter for reset
+		player_scale = 1.0  # Reset to default size
 	
 	if locked: return 
 	
