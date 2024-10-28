@@ -44,7 +44,6 @@ func _process(delta):
 		if player:
 			print("Player instance found: ", player.name)
 		else:
-			print("Still waiting for player instance...")
 			return
 
 	if not is_instance_valid(player) or is_chatbox_active():
