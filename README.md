@@ -1,11 +1,11 @@
 # KMod
 Collection of Webfishing mod features intended for my own use
 
-KNOWN ISSUE:
-- Joining a server, leaving, joining a new server seems to currently break this mod. I'll work on fixing that but yeah
-
 Current features:
 - Go small or large by holding comma or period. reset with slash
+
+KNOWN ISSUE:
+- Joining a server, leaving, joining a new server seems to currently break this mod. I'll work on fixing that but yeah
 
 ## Installation Method 1: Hook Line & Sinker
 Download Hook Line & Sinker: https://github.com/pyoidzzz/HLSRewritten
