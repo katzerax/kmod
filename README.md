@@ -4,6 +4,8 @@ Collection of Webfishing mod features intended for my own use
 Current features:
 - Go small or large by holding comma or period. Reset with slash
 
+You can enable or disable any of the features using the config file located under GDWeave/configs/KMod.json. This will only generate after the first time launching the game with this mod installed. This can be done manually by editing the json, or through Hook Line & Sinker through the config editor, or through Tacklebox's in game mod menu (requires restart to apply). 
+
 ## Installation Method 1: Hook Line & Sinker
 Download Hook Line & Sinker: https://github.com/pyoidzzz/HLSRewritten
 
