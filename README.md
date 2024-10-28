@@ -24,3 +24,29 @@ Navigate to your GDWeave installation, under GDWeave/mods/ place the unzipped fo
 
 File structure should look like
 ```GDWeave/mods/KMod/KMod.pck```
+
+## Contributing
+Download the latest Source Code from GitHub. Unzip contents into a folder named "KMod".
+
+You need to decompile webfishing: https://github.com/bruvzg/gdsdecomp/releases/latest
+- Copy steam_appid.txt from the base game and paste it in the decompiled game's folder (or the folder where you have the godotsteam exe)
+- NOTE: Redistributing the decompilation is illegal, don't upload the source assets or code of the game anywhere and decompile your legally owned copy of the game from steam only
+- In the decompiled game's folder, create a folder named "mods" if it does not already exist.
+- Insert the KMod folder into this mods folder. should follow ```mods/KMod/main.gd``` etc.
+
+You need GodotSteam 3.5.2: https://github.com/GodotSteam/GodotSteam/releases/tag/v3.21
+
+Open the decompiled webfishing project through GodotSteam 3.5.2. Give it a minute to load. It will present you with the project for Webfishing. In the file browser under ```res://mods/KMod```, youll see my code.
+
+You need to set some things up before you want to start developing. Firstly, click Project -> Project Settings -> Autoload. Set the path to ```res://mods/KMod/main.gd```. Label it KMod and add it. This makes sure that it loads the mod when you launch this version of the game through Godot.
+
+Secondly, you'll want to configure the export settings. Project -> Export. 
+- Click Add and then Windows Desktop. 
+- Select both Debug and Release export templates from the GodotSteam folder.
+- Disable Runnable at the top.
+- Go to Resources and in Export Mode select Export selected resources and their dependencies
+- Checkmark the mods/ folder (or just the KMod folder)
+- Click on Export PCK/Zip...
+- in All Recognized (\*.zip, \*.pck) select Godot Project Pack (\*.pck)
+- Export
+
