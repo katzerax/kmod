@@ -1,5 +1,5 @@
 # KMod
-Collection of WebFishing mod features intended for my own use
+Collection of Webfishing mod features intended for my own use
 
 Current features:
 - Go large or small by holding comma or period. reset with slash
