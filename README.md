@@ -29,6 +29,7 @@ File structure should look like
 ```GDWeave/mods/KMod/KMod.pck```
 
 ## Contributing
+### Setting up a Developer Instance
 Download the latest Source Code from GitHub. Unzip contents into a folder named "KMod".
 
 You need to decompile webfishing: https://github.com/bruvzg/gdsdecomp/releases/latest
@@ -53,3 +54,7 @@ Secondly, you'll want to configure the export settings. Project -> Export.
 - in All Recognized (\*.zip, \*.pck) select Godot Project Pack (\*.pck)
 - Export
 
+### Contributing to the repository on GitHub
+- Create a fork of the repository
+- Commit your changes to your fork
+- Create a pull request so I can review the changes and merge into the main repository
