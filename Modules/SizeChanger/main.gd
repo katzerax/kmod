@@ -13,7 +13,6 @@ func initialize():
 	if !in_lobby():
 		print("In main menu or loading menu. SizeChanger will not initialize.")
 		return
-
 	player = get_player_node()
 	if player:
 		print("SizeChanger initialized with player instance: ", player.name)
@@ -46,11 +45,9 @@ func _process(delta):
 	if Input.is_key_pressed(grow):
 		player.player_scale = clamp(player.player_scale + 0.4 * delta, 0.1, 100)
 		print("New scale: ", player.player_scale)
-
 	elif Input.is_key_pressed(shrink):
 		player.player_scale = clamp(player.player_scale - 0.4 * delta, 0.1, 100)
 		print("New scale: ", player.player_scale)
-
 	elif Input.is_key_pressed(reset):
 		player.player_scale = 1.0
 		print("New scale: ", player.player_scale)
