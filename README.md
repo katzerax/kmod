@@ -2,7 +2,7 @@
 Collection of Webfishing mod features intended for my own use
 
 Current features:
-- Go small or large by holding comma or period. reset with slash
+- Go small or large by holding comma or period. Reset with slash
 
 ## Installation Method 1: Hook Line & Sinker
 Download Hook Line & Sinker: https://github.com/pyoidzzz/HLSRewritten
