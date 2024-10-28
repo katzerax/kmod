@@ -5,6 +5,7 @@ const grow = KEY_PERIOD
 const reset = KEY_SLASH
 
 var player
+var last_scene_name = ""
 
 func _ready():
 	initialize()
@@ -14,6 +15,7 @@ func initialize():
 		print("In main menu or loading menu. SizeChanger will not initialize.")
 		return
 	player = get_player_node()
+	last_scene_name = get_tree().current_scene.name
 	if player:
 		print("SizeChanger initialized with player instance: ", player.name)
 	else:
@@ -31,7 +33,13 @@ func is_chatbox_active():
 	return playerhud and playerhud.using_chat
 
 func _process(delta):
-	if not player:
+	var current_scene_name = get_tree().current_scene.name
+	
+	if current_scene_name != last_scene_name:
+		last_scene_name = current_scene_name
+		player = null  
+
+	if !player:
 		player = get_player_node()
 		if player:
 			print("Player instance found: ", player.name)
