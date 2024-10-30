@@ -1,7 +1,8 @@
 extends Node
 
 var config_data = {
-	"SizeChanger": true
+	"SizeChanger": true,
+	"KeybindFix": true
 }
 
 func _get_config_location() -> String:
@@ -29,27 +30,42 @@ func _save_config():
 func _load_config():
 	var path = _get_config_location()
 	var file = File.new()
-	
+
 	if not file.file_exists(path):
 		print("Config file not found. Creating default config.")
 		_save_config()
 		return
-	
+
 	if file.open(path, File.READ) == OK:
 		var data = file.get_as_text()
 		file.close()
-		
+
 		var result = JSON.parse(data)
 		if result.error == OK and typeof(result.result) == TYPE_DICTIONARY:
 			config_data = result.result
 			print("Config loaded successfully:", config_data)
 		else:
 			print("Failed to parse config file, using default values.")
+			config_data = {}
 	else:
 		print("Failed to open file for reading:", path)
+
+	if not config_data.has("SizeChanger"):
+		config_data["SizeChanger"] = true
+		print("Default value for 'SizeChanger' set to true.")
+		
+	if not config_data.has("KeybindFix"):
+		config_data["KeybindFix"] = true
+		print("Default value for 'KeybindFix' set to true.")
+
+	_save_config()
 
 func _ready():
 	_load_config()
 	if config_data["SizeChanger"]:
 		var size_changer = preload("res://mods/KMod/Modules/SizeChanger/main.gd").new()
 		add_child(size_changer)
+
+	if config_data["KeybindFix"]:
+		var keybind_fix = preload("res://mods/KMod/Modules/KeybindFix/main.gd").new()
+		add_child(keybind_fix)
