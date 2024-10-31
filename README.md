@@ -1,5 +1,5 @@
 # KMod
-Collection of Webfishing mod features intended for my own use
+Small collection of Webfishing features
 
 Current features as of 1.4.0:
 - Go small or large by holding comma or period. Reset with slash. Saves player size after 6 seconds have passed after changing size. Loads player size on lobby connect.
