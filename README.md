@@ -2,8 +2,8 @@
 Small collection of Webfishing features
 
 ### Current features as of 1.4.0:
-- SizeChanger: Change size by holding comma or period. Reset with slash. Saves player size after 6 seconds have passed after changing size. Loads player size on lobby connect.
-- KeybindFix: Open and Close OptionsMenu on boot. This loads in custom key binds that the game otherwise waits for you to open your options menu to initialize. Not impactful to performance.
+- **SizeChanger**: Change size by holding comma or period. Reset with slash. Saves player size after 6 seconds have passed after changing size. Loads player size on lobby connect.
+- **KeybindFix**: Open and Close OptionsMenu on boot. This loads in custom key binds that the game otherwise waits for you to open your options menu to initialize. Not impactful to performance.
 
 You can enable or disable any of the features using the config file located under ```GDWeave/configs/KMod.json```. This will only generate after the first time launching the game with this mod installed. This can be done manually by editing the json, or through [Hook Line & Sinker](https://github.com/pyoidzzz/HLSRewritten) through the config editor, or through [TackleBox](https://github.com/puppy-girl/TackleBox)'s in game mod menu (requires restart to apply). 
 
