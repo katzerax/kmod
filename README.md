@@ -16,9 +16,10 @@ Download the latest release KMod.zip file: https://github.com/katzerax/kmod/rele
 
 Navigate to Mod Manager in HLS, under 3rd party mods click "Import Zip", navigate to the downloaded KMod.zip file and import it.
 
-Tada.
+## Installation Method 2: R2Modman (WIP)
+- 
 
-## Installation Method 2: Manual
+## Installation Method 3: Manual
 Requires GDWeave https://github.com/NotNite/GDWeave
 
 Download the latest release KMod.zip file: https://github.com/katzerax/kmod/releases/latest/download/KMod.zip
