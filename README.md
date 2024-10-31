@@ -30,6 +30,8 @@ File structure should look like
 
 ## Contributing
 ### Setting up a Developer Instance
+Much of this information is copy pasted from a Webfishing Community Server Instruction Thread createrd by (Sulayre)[https://github.com/Sulayre], creator of (Lure)[https://github.com/Sulayre/WebfishingLure].
+
 Download the latest Source Code from GitHub. Unzip contents into a folder named "KMod".
 
 You need to decompile webfishing: https://github.com/bruvzg/gdsdecomp/releases/latest
