@@ -44,7 +44,7 @@ Open the decompiled webfishing project through GodotSteam 3.5.2. Give it a minut
 
 You need to set some things up before you want to start developing. Firstly, click Project -> Project Settings -> Autoload. Set the path to ```res://mods/KMod/main.gd```. Label it KMod and add it. This makes sure that it loads the mod when you launch this version of the game through Godot. This is where you will want to develop and test the code.
 
-**IMPORTANT: Exporting directly out of a decompiled version of Webfishing will force the game to bundle unecessary dependencies into the mod. This must be avoided.**
+**IMPORTANT: Exporting directly out of a decompiled version of Webfishing will force the game to bundle unecessary dependencies into the mod. This must be avoided if you plan on sharing the export with anyone.**
 
 Set up a new project, in a new folder, and copy/paste the /mods/ folder from your decompiled project into this new, empty project. 
 **Only export the mod from this new, mostly empty project.**
