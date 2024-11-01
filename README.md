@@ -12,14 +12,9 @@ Download Hook Line & Sinker: https://github.com/pyoidzzz/HLSRewritten
 
 Follow the steps to set game installation path, install .NET 8.0 and then install GDWeave. 
 
-Download the latest release KMod.zip file: https://github.com/katzerax/kmod/releases/latest/download/KMod.zip
+Navigate to Available Mods in HLS, click on KMod (search for KMod if necessary), click install. This will install the mod correctly and you do not need to do anything further. It takes the latest release from the Thunderstore page.
 
-Navigate to Mod Manager in HLS, under 3rd party mods click "Import Zip", navigate to the downloaded KMod.zip file and import it.
-
-## Installation Method 2: R2Modman (WIP)
-- 
-
-## Installation Method 3: Manual
+## Installation Method 2: Manual
 Requires GDWeave https://github.com/NotNite/GDWeave
 
 Download the latest release KMod.zip file: https://github.com/katzerax/kmod/releases/latest/download/KMod.zip
@@ -28,6 +23,8 @@ Navigate to your GDWeave installation, under GDWeave/mods/ place the unzipped fo
 
 File structure should look like
 ```GDWeave/mods/KMod/KMod.pck```
+
+**Make sure you didn't download the source code if installing manually, but the release. I gave you a link to the release above for a reason.**
 
 ## Contributing
 ### Setting up a Developer Instance
