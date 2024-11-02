@@ -32,13 +32,14 @@ Much of this information is copy pasted from a Webfishing Community Server Instr
 
 Download the latest Source Code from GitHub. Unzip contents into a folder named "KMod".
 
+Download GodotSteam 3.5.2: https://github.com/GodotSteam/GodotSteam/releases/tag/v3.21
+
 You need to decompile webfishing: https://github.com/bruvzg/gdsdecomp/releases/latest
+
 - Copy steam_appid.txt from the base game and paste it in the decompiled game's folder (or the folder where you have the godotsteam exe)
 - NOTE: Redistributing the decompilation is illegal, don't upload the source assets or code of the game anywhere and decompile your legally owned copy of the game from steam only
 - In the decompiled game's folder, create a folder named "mods" if it does not already exist.
 - Insert the KMod folder into this mods folder. should follow ```mods/KMod/main.gd``` etc.
-
-You need GodotSteam 3.5.2: https://github.com/GodotSteam/GodotSteam/releases/tag/v3.21
 
 Open the decompiled webfishing project through GodotSteam 3.5.2. Give it a minute to load. It will present you with the project for Webfishing. In the file browser under ```res://mods/KMod```, youll see my code.
 
