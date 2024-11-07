@@ -58,10 +58,10 @@ func _process(delta):
 	var size_changed = false
 
 	if Input.is_key_pressed(grow):
-		player.player_scale = clamp(player.player_scale + 0.4 * delta, 0.1, 100)
+		player.player_scale = clamp(player.player_scale + 0.4 * delta, 0.6, 1.4)
 		size_changed = true
 	elif Input.is_key_pressed(shrink):
-		player.player_scale = clamp(player.player_scale - 0.4 * delta, 0.1, 100)
+		player.player_scale = clamp(player.player_scale - 0.4 * delta, 0.6, 1.4)
 		size_changed = true
 	elif Input.is_key_pressed(reset):
 		player.player_scale = 1.0
