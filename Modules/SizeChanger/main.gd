@@ -10,9 +10,12 @@ var player
 var last_scene_name = ""
 var player_size = 1.0
 var save_timer = null
+var size_min = 0.6
+var size_max = 1.4
 
 func _ready():
 	initialize()
+	_apply_size_unlocker()
 
 func initialize():
 	if !in_lobby():
@@ -25,6 +28,25 @@ func initialize():
 		print("SizeChanger initialized with player instance: ", player.name)
 	else:
 		print("No player instance found yet. Waiting...")
+
+func _apply_size_unlocker():
+	var has_unlocker = _check_for_size_unlocker()
+	if has_unlocker:
+		print("SizeUnlocker detected: Using extended size limits.")
+		size_min = 0.1
+		size_max = 10.0
+	else:
+		print("SizeUnlocker not detected: Using default size limits.")
+		size_min = 0.6
+		size_max = 1.4
+
+func _check_for_size_unlocker() -> bool:
+	# Construct the path to manifest.json
+	var exe_path = OS.get_executable_path().get_base_dir()
+	var manifest_path = exe_path.plus_file("GDWeave").plus_file("mods").plus_file("SizeUnlocker").plus_file("manifest.json")
+	
+	# Check if manifest.json exists
+	return File.new().file_exists(manifest_path)
 
 func get_player_node():
 	return get_tree().current_scene.get_node_or_null("Viewport/main/entities/player")
@@ -58,10 +80,10 @@ func _process(delta):
 	var size_changed = false
 
 	if Input.is_key_pressed(grow):
-		player.player_scale = clamp(player.player_scale + 0.4 * delta, 0.6, 1.4)
+		player.player_scale = clamp(player.player_scale + 0.4 * delta, size_min, size_max)
 		size_changed = true
 	elif Input.is_key_pressed(shrink):
-		player.player_scale = clamp(player.player_scale - 0.4 * delta, 0.6, 1.4)
+		player.player_scale = clamp(player.player_scale - 0.4 * delta, size_min, size_max)
 		size_changed = true
 	elif Input.is_key_pressed(reset):
 		player.player_scale = 1.0
