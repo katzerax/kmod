@@ -1,11 +1,13 @@
 # KMod
 Small collection of Webfishing features
 
-### Current features as of 1.4.0:
+### Current features as of 1.5.0:
 - **SizeChanger**: Change size by holding comma or period. Reset with slash. Saves player size after 6 seconds have passed after changing size. Loads player size on lobby connect.
+- - **UPDATE AS OF GAME VERSION 1.09/MOD VERSION 1.5.0**: Because of newly built in game limitations on size, the player can only shrink to a player size of 0.6 or grow to a player size of 1.4 just using gdscript. This is still outside of the range you can get with sodas, but is not close to the original range of size changing. I added support in 1.5.0 for the mod [SizeUnlocker](https://github.com/Nowaha/SizeUnlocker). This will let you go beyond the current vanilla limitations, and is required if you want to see other players beyond those sizes.
 - **KeybindFix**: Open and Close OptionsMenu on boot. This loads in custom key binds that the game otherwise waits for you to open your options menu to initialize. Not impactful to performance.
 
 You can enable or disable any of the features using the config file located under ```GDWeave/configs/KMod.json```. This will only generate after the first time launching the game with this mod installed. This can be done manually by editing the json, or through [Hook Line & Sinker](https://github.com/pyoidzzz/HLSRewritten) through the config editor, or through [TackleBox](https://github.com/puppy-girl/TackleBox)'s in game mod menu (requires restart to apply). 
+
 
 ## Installation Method 1: Hook Line & Sinker
 Download Hook Line & Sinker: https://github.com/pyoidzzz/HLSRewritten
