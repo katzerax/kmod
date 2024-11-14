@@ -16,7 +16,15 @@ Follow the steps to set game installation path, install .NET 8.0 and then instal
 
 Navigate to Available Mods in HLS, click on KMod (search for KMod if necessary), click install. This will install the mod correctly and you do not need to do anything further. It takes the latest release from the Thunderstore page.
 
-## Installation Method 2: Manual
+## Installation Method 2: r2modman
+Download the latest release of r2modman:
+https://github.com/ebkr/r2modmanPlus/releases
+
+Search "WEBFISHING". Webfishing should appear. Load that game on whatever profile, default works. Search for "KMod" in the mods browser section, click install, install latest with dependencies.
+
+*Note: r2modman does not seem to like how I handle the config file, for some reason. Maybe it'll be happier if I use tacklebox's api. But less dependencies would be preferable. If you don't want to disable the features this isn't a problem, but if you do you're better off either using HLS for now or Manual.
+
+## Installation Method 3: Manual
 Requires GDWeave https://github.com/NotNite/GDWeave
 
 Download the latest release KMod.zip file: https://github.com/katzerax/kmod/releases/latest/download/KMod.zip
