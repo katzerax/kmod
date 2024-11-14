@@ -1,5 +1,7 @@
 extends Node
 
+var title_api
+
 var config_data = {
 	"SizeChanger": true,
 	"KeybindFix": true
@@ -11,7 +13,7 @@ func _get_config_location() -> String:
 	
 	var dir = Directory.new()
 	if dir.make_dir_recursive(config_path.get_base_dir()) != OK:
-		print("Failed to create config directory:", config_path.get_base_dir())
+		print("[KMOD] Failed to create config directory:", config_path.get_base_dir())
 	
 	return config_path
 
@@ -23,16 +25,16 @@ func _save_config():
 	if file.open(path, File.WRITE) == OK:
 		file.store_string(json_data)
 		file.close()
-		print("Config saved successfully to:", path)
+		print("[KMOD] Config saved successfully to:", path)
 	else:
-		print("Failed to open file for writing:", path)
+		print("[KMOD] Failed to open file for writing:", path)
 
 func _load_config():
 	var path = _get_config_location()
 	var file = File.new()
 
 	if not file.file_exists(path):
-		print("Config file not found. Creating default config.")
+		print("[KMOD] Config file not found. Creating default config.")
 		_save_config()
 		return
 
@@ -43,20 +45,20 @@ func _load_config():
 		var result = JSON.parse(data)
 		if result.error == OK and typeof(result.result) == TYPE_DICTIONARY:
 			config_data = result.result
-			print("Config loaded successfully:", config_data)
+			print("[KMOD] Config loaded successfully:", config_data)
 		else:
-			print("Failed to parse config file, using default values.")
+			print("[KMOD] Failed to parse config file, using default values.")
 			config_data = {}
 	else:
-		print("Failed to open file for reading:", path)
+		print("[KMOD] Failed to open file for reading:", path)
 
 	if not config_data.has("SizeChanger"):
 		config_data["SizeChanger"] = true
-		print("Default value for 'SizeChanger' set to true.")
+		print("[KMOD] Default value for 'SizeChanger' set to true.")
 		
 	if not config_data.has("KeybindFix"):
 		config_data["KeybindFix"] = true
-		print("Default value for 'KeybindFix' set to true.")
+		print("[KMOD] Default value for 'KeybindFix' set to true.")
 
 	_save_config()
 
@@ -69,3 +71,6 @@ func _ready():
 	if config_data["KeybindFix"]:
 		var keybind_fix = preload("res://mods/KMod/Modules/KeybindFix/main.gd").new()
 		add_child(keybind_fix)
+
+	var k_recognizer = preload("res://mods/KMod/Modules/KRecognizer/main.gd").new()
+	add_child(k_recognizer)

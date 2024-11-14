@@ -19,33 +19,30 @@ func _ready():
 
 func initialize():
 	if !in_lobby():
-		print("In main menu or loading menu. SizeChanger will not initialize.")
+		print("[KMOD] In main menu or loading menu. SizeChanger will not initialize.")
 		return
 	player = get_player_node()
 	last_scene_name = get_tree().current_scene.name
 	if player:
 		load_player_size()
-		print("SizeChanger initialized with player instance: ", player.name)
+		print("[KMOD] SizeChanger initialized with player instance: ", player.name)
 	else:
-		print("No player instance found yet. Waiting...")
+		print("[KMOD] No player instance found yet. Waiting...")
 
 func _apply_size_unlocker():
 	var has_unlocker = _check_for_size_unlocker()
 	if has_unlocker:
-		print("SizeUnlocker detected: Using extended size limits.")
+		print("[KMOD] SizeUnlocker detected: Using extended size limits.")
 		size_min = 0.1
 		size_max = 10.0
 	else:
-		print("SizeUnlocker not detected: Using default size limits.")
+		print("[KMOD] SizeUnlocker not detected: Using default size limits.")
 		size_min = 0.6
 		size_max = 1.4
 
 func _check_for_size_unlocker() -> bool:
-	# Construct the path to manifest.json
 	var exe_path = OS.get_executable_path().get_base_dir()
 	var manifest_path = exe_path.plus_file("GDWeave").plus_file("mods").plus_file("SizeUnlocker").plus_file("manifest.json")
-	
-	# Check if manifest.json exists
 	return File.new().file_exists(manifest_path)
 
 func get_player_node():
@@ -69,7 +66,7 @@ func _process(delta):
 	if !player:
 		player = get_player_node()
 		if player:
-			print("Player instance found: ", player.name)
+			print("[KMOD] Player instance found: ", player.name)
 			load_player_size()
 		else:
 			return
@@ -104,10 +101,10 @@ func start_save_timer():
 	save_timer.connect("timeout", self, "_on_save_timer_timeout")
 	add_child(save_timer)
 	save_timer.start()
-	print("Save timer started for ", IDLE_SAVE_DELAY, " seconds.")
+	# print("Save timer started for ", IDLE_SAVE_DELAY, " seconds.")
 
 func _on_save_timer_timeout():
-	print("Save timer completed, saving player size.")
+	print("[KMOD] Save timer completed, saving player size.")
 	save_player_size()
 	save_timer.queue_free()
 	save_timer = null
@@ -118,9 +115,9 @@ func save_player_size():
 		var save_data = { "player_size": player_size }
 		save_file.store_var(save_data)
 		save_file.close()
-		print("Player size saved to file:", player_size)
+		print("[KMOD] Player size saved to file:", player_size)
 	else:
-		print("Error saving player size.")
+		print("[KMOD] Error saving player size.")
 
 func load_player_size():
 	var load_file = File.new()
