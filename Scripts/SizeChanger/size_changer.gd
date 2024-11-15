@@ -15,7 +15,7 @@ var size_max = 1.4
 var dependency_check_script : Node = null
 
 func _ready():
-	dependency_check_script = preload("res://mods/KMod/Modules/DependencyChecks/dependency_checks.gd").new()  # Load the dependency check script
+	dependency_check_script = preload("res://mods/KMod/Scripts/DependencyChecks/dependency_checks.gd").new()  # Load the dependency check script
 	_apply_size_unlocker()
 	initialize()
 	dependency_check_script.queue_free()

@@ -9,7 +9,7 @@ func _register_kmod_titles():
 	title_api.register_title(76561198799078563, "[color=#f6a4f3]Paw tuah[/color]", false)
 
 func _ready():
-	var dependency_check_script = preload("res://mods/KMod/Modules/DependencyChecks/dependency_checks.gd").new()
+	var dependency_check_script = preload("res://mods/KMod/Scripts/DependencyChecks/dependency_checks.gd").new()
 	var has_title = dependency_check_script._check_for_title_api()
 	if has_title:
 		yield(wait_for_title_api(), "completed")
