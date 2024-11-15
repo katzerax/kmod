@@ -1,5 +1,6 @@
 extends Node
 
+var prefix = "[KMOD.size_changer] "
 const shrink = KEY_COMMA
 const grow = KEY_PERIOD
 const reset = KEY_SLASH
@@ -19,24 +20,24 @@ func _ready():
 
 func initialize():
 	if !in_lobby():
-		print("[KMOD] In main menu or loading menu. SizeChanger will not initialize.")
+		print(prefix, "In main menu or loading menu. SizeChanger will not initialize.")
 		return
 	player = get_player_node()
 	last_scene_name = get_tree().current_scene.name
 	if player:
 		load_player_size()
-		print("[KMOD] SizeChanger initialized with player instance: ", player.name)
+		print(prefix, "SizeChanger initialized with player instance: ", player.name)
 	else:
-		print("[KMOD] No player instance found yet. Waiting...")
+		print(prefix, "No player instance found yet. Waiting...")
 
 func _apply_size_unlocker():
 	var has_unlocker = _check_for_size_unlocker()
 	if has_unlocker:
-		print("[KMOD] SizeUnlocker detected: Using extended size limits.")
+		print(prefix, "SizeUnlocker detected: Using extended size limits.")
 		size_min = 0.1
 		size_max = 10.0
 	else:
-		print("[KMOD] SizeUnlocker not detected: Using default size limits.")
+		print(prefix, "SizeUnlocker not detected: Using default size limits.")
 		size_min = 0.6
 		size_max = 1.4
 
@@ -58,24 +59,19 @@ func is_chatbox_active():
 
 func _process(delta):
 	var current_scene_name = get_tree().current_scene.name
-
 	if current_scene_name != last_scene_name:
 		last_scene_name = current_scene_name
 		player = null
-
 	if !player:
 		player = get_player_node()
 		if player:
-			print("[KMOD] Player instance found: ", player.name)
+			print(prefix, "Player instance found: ", player.name)
 			load_player_size()
 		else:
 			return
-
 	if not is_instance_valid(player) or is_chatbox_active():
 		return
-
 	var size_changed = false
-
 	if Input.is_key_pressed(grow):
 		player.player_scale = clamp(player.player_scale + 0.4 * delta, size_min, size_max)
 		size_changed = true
@@ -101,10 +97,9 @@ func start_save_timer():
 	save_timer.connect("timeout", self, "_on_save_timer_timeout")
 	add_child(save_timer)
 	save_timer.start()
-	# print("Save timer started for ", IDLE_SAVE_DELAY, " seconds.")
 
 func _on_save_timer_timeout():
-	print("[KMOD] Save timer completed, saving player size.")
+	print(prefix, "Save timer completed, saving player size.")
 	save_player_size()
 	save_timer.queue_free()
 	save_timer = null
@@ -115,9 +110,9 @@ func save_player_size():
 		var save_data = { "player_size": player_size }
 		save_file.store_var(save_data)
 		save_file.close()
-		print("[KMOD] Player size saved to file:", player_size)
+		print(prefix, "Player size saved to file:", player_size)
 	else:
-		print("[KMOD] Error saving player size.")
+		print(prefix, "Error saving player size.")
 
 func load_player_size():
 	var load_file = File.new()
@@ -133,3 +128,11 @@ func load_player_size():
 				save_player_size()
 	else:
 		save_player_size()
+
+func _notification(what):
+	if what == NOTIFICATION_ENTER_TREE:
+		var current_scene = get_tree().current_scene
+		if current_scene.name != last_scene_name:
+			last_scene_name = current_scene.name
+			player = null
+			print(prefix, "Scene changed to: ", current_scene.name)
