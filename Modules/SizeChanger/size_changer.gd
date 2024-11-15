@@ -6,13 +6,28 @@ const grow = KEY_PERIOD
 const reset = KEY_SLASH
 const SAVE_FILE_PATH = "user://KMod.save"
 const IDLE_SAVE_DELAY = 6.0
-
 var player
 var last_scene_name = ""
 var player_size = 1.0
 var save_timer = null
 var size_min = 0.6
 var size_max = 1.4
+
+func _get_gdweave_dir() -> String:
+	var game_directory = OS.get_executable_path().get_base_dir()
+	var folder_override = _get_folder_override()
+	if folder_override:
+		var relative_path = game_directory.plus_file(folder_override)
+		var is_relative = not ":" in relative_path and Directory.new().file_exists(relative_path)
+		return relative_path if is_relative else folder_override
+	else:
+		return game_directory.plus_file("GDWeave")
+
+func _get_folder_override() -> String:
+	for argument in OS.get_cmdline_args():
+		if argument.begins_with("--gdweave-folder-override="):
+			return argument.trim_prefix("--gdweave-folder-override=").replace("\\", "/")
+	return ""
 
 func _ready():
 	initialize()
@@ -42,18 +57,34 @@ func _apply_size_unlocker():
 		size_max = 1.4
 
 func _check_for_size_unlocker() -> bool:
-	var exe_path = OS.get_executable_path().get_base_dir()
-	var manifest_path = exe_path.plus_file("GDWeave").plus_file("mods").plus_file("SizeUnlocker").plus_file("manifest.json")
-	return File.new().file_exists(manifest_path)
+	var gdweave_dir = _get_gdweave_dir()
+	var size_unlocker_dir = gdweave_dir.plus_file("mods")
+	var folder_override = _get_folder_override()
+	if folder_override != "":
+		size_unlocker_dir = size_unlocker_dir.plus_file("nowaha-SizeUnlocker")
+	else:
+		size_unlocker_dir = size_unlocker_dir.plus_file("SizeUnlocker")
+	var manifest_path = size_unlocker_dir.plus_file("manifest.json")
+	print(prefix, "Checking manifest at: ", manifest_path)
+	return _check_manifest(manifest_path, "SizeUnlocker ")
+
+func _check_manifest(manifest_path: String, api_name: String) -> bool:
+	var file = File.new()
+	if file.file_exists(manifest_path):
+		print(prefix, api_name, "manifest found!")
+		return true
+	else:
+		print(prefix, api_name, "manifest not found.")
+		return false
 
 func get_player_node():
 	return get_tree().current_scene.get_node_or_null("Viewport/main/entities/player")
 
-func in_lobby():
+func in_lobby() -> bool:
 	var current_scene_name = get_tree().current_scene.name
 	return current_scene_name != "main_menu" and current_scene_name != "loading_menu" and current_scene_name != "splash"
 
-func is_chatbox_active():
+func is_chatbox_active() -> bool:
 	var playerhud = get_tree().get_root().get_node_or_null("playerhud")
 	return playerhud and playerhud.using_chat
 
@@ -81,7 +112,6 @@ func _process(delta):
 	elif Input.is_key_pressed(reset):
 		player.player_scale = 1.0
 		size_changed = true
-
 	if size_changed:
 		player_size = player.player_scale
 		start_save_timer()
