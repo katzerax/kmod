@@ -15,7 +15,7 @@ var size_max = 1.4
 var dependency_check_script : Node = null
 
 func _ready():
-	dependency_check_script = preload("res://mods/KMod/Scripts/DependencyChecks/dependency_checks.gd").new()  # Load the dependency check script
+	dependency_check_script = preload("res://mods/KMod/Scripts/DependencyChecks/dependency_checks.gd").new()
 	_apply_size_unlocker()
 	initialize()
 	dependency_check_script.queue_free()
@@ -33,7 +33,7 @@ func initialize():
 		print(prefix, "No player instance found yet. Waiting...")
 
 func _apply_size_unlocker():
-	var has_unlocker = dependency_check_script._check_for_size_unlocker()  # Call the method from dependency_check.gd
+	var has_unlocker = dependency_check_script._check_for_size_unlocker()
 	if has_unlocker:
 		print(prefix, "SizeUnlocker detected: Using extended size limits.")
 		size_min = 0.1
