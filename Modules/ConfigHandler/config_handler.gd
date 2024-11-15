@@ -7,9 +7,24 @@ var default_config_data = {
 	"KeybindFix": true
 }
 
+func _get_gdweave_dir() -> String:
+	var game_directory := OS.get_executable_path().get_base_dir()
+	var folder_override: String
+	var final_directory: String
+	for argument in OS.get_cmdline_args():
+		if argument.begins_with("--gdweave-folder-override="):
+			folder_override = argument.trim_prefix("--gdweave-folder-override=").replace("\\", "/")
+	if folder_override:
+		var relative_path := game_directory.plus_file(folder_override)
+		var is_relative := not ":" in relative_path and Directory.new().file_exists(relative_path)
+		final_directory = relative_path if is_relative else folder_override
+	else:
+		final_directory = game_directory.plus_file("GDWeave")
+	return final_directory
+
 func _get_config_location() -> String:
-	var exe_path = OS.get_executable_path().get_base_dir()
-	var config_path = exe_path.plus_file("GDWeave").plus_file("configs").plus_file("KMod.json")
+	var gdweave_dir = _get_gdweave_dir()
+	var config_path = gdweave_dir.plus_file("configs").plus_file("KMod.json")
 	var dir = Directory.new()
 	if dir.make_dir_recursive(config_path.get_base_dir()) != OK:
 		print(prefix, "Failed to create config directory: ", config_path.get_base_dir())
@@ -46,6 +61,7 @@ func load_config():
 	var file = File.new()
 	if not file.file_exists(path):
 		print(prefix, "Config file not found. Creating default config.")
+		config_data = default_config_data.duplicate()
 		save_config()
 		return
 	if file.open(path, File.READ) == OK:
@@ -57,7 +73,7 @@ func load_config():
 			print(prefix, "Config loaded successfully: ", config_data)
 		else:
 			print(prefix, "Failed to parse config file, using default values.")
-			config_data = {}
+			config_data = default_config_data.duplicate()
 	else:
 		print(prefix, "Failed to open file for reading: ", path)
 	for key in default_config_data.keys():
