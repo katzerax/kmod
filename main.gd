@@ -1,76 +1,21 @@
 extends Node
 
-var title_api
-
-var config_data = {
-	"SizeChanger": true,
-	"KeybindFix": true
-}
-
-func _get_config_location() -> String:
-	var exe_path = OS.get_executable_path().get_base_dir()
-	var config_path = exe_path.plus_file("GDWeave").plus_file("configs").plus_file("KMod.json")
-	
-	var dir = Directory.new()
-	if dir.make_dir_recursive(config_path.get_base_dir()) != OK:
-		print("[KMOD] Failed to create config directory:", config_path.get_base_dir())
-	
-	return config_path
-
-func _save_config():
-	var path = _get_config_location()
-	var json_data = JSON.print(config_data)
-	
-	var file = File.new()
-	if file.open(path, File.WRITE) == OK:
-		file.store_string(json_data)
-		file.close()
-		print("[KMOD] Config saved successfully to:", path)
-	else:
-		print("[KMOD] Failed to open file for writing:", path)
-
-func _load_config():
-	var path = _get_config_location()
-	var file = File.new()
-
-	if not file.file_exists(path):
-		print("[KMOD] Config file not found. Creating default config.")
-		_save_config()
-		return
-
-	if file.open(path, File.READ) == OK:
-		var data = file.get_as_text()
-		file.close()
-
-		var result = JSON.parse(data)
-		if result.error == OK and typeof(result.result) == TYPE_DICTIONARY:
-			config_data = result.result
-			print("[KMOD] Config loaded successfully:", config_data)
-		else:
-			print("[KMOD] Failed to parse config file, using default values.")
-			config_data = {}
-	else:
-		print("[KMOD] Failed to open file for reading:", path)
-
-	if not config_data.has("SizeChanger"):
-		config_data["SizeChanger"] = true
-		print("[KMOD] Default value for 'SizeChanger' set to true.")
-		
-	if not config_data.has("KeybindFix"):
-		config_data["KeybindFix"] = true
-		print("[KMOD] Default value for 'KeybindFix' set to true.")
-
-	_save_config()
+var config_handler
 
 func _ready():
-	_load_config()
+	config_handler = preload("res://mods/KMod/Modules/ConfigHandler/config_handler.gd").new()
+	add_child(config_handler)
+	
+	config_handler.load_config()
+	var config_data = config_handler.config_data
+	
 	if config_data["SizeChanger"]:
-		var size_changer = preload("res://mods/KMod/Modules/SizeChanger/main.gd").new()
+		var size_changer = preload("res://mods/KMod/Modules/SizeChanger/size_changer.gd").new()
 		add_child(size_changer)
 
 	if config_data["KeybindFix"]:
-		var keybind_fix = preload("res://mods/KMod/Modules/KeybindFix/main.gd").new()
+		var keybind_fix = preload("res://mods/KMod/Modules/KeybindFix/keybind_fix.gd").new()
 		add_child(keybind_fix)
 
-	var k_recognizer = preload("res://mods/KMod/Modules/KRecognizer/main.gd").new()
+	var k_recognizer = preload("res://mods/KMod/Modules/KRecognizer/k_recognizer.gd").new()
 	add_child(k_recognizer)
