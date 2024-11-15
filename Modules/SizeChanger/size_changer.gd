@@ -12,26 +12,13 @@ var player_size = 1.0
 var save_timer = null
 var size_min = 0.6
 var size_max = 1.4
-
-func _get_gdweave_dir() -> String:
-	var game_directory = OS.get_executable_path().get_base_dir()
-	var folder_override = _get_folder_override()
-	if folder_override:
-		var relative_path = game_directory.plus_file(folder_override)
-		var is_relative = not ":" in relative_path and Directory.new().file_exists(relative_path)
-		return relative_path if is_relative else folder_override
-	else:
-		return game_directory.plus_file("GDWeave")
-
-func _get_folder_override() -> String:
-	for argument in OS.get_cmdline_args():
-		if argument.begins_with("--gdweave-folder-override="):
-			return argument.trim_prefix("--gdweave-folder-override=").replace("\\", "/")
-	return ""
+var dependency_check_script : Node = null
 
 func _ready():
-	initialize()
+	dependency_check_script = preload("res://mods/KMod/Modules/DependencyChecks/dependency_checks.gd").new()  # Load the dependency check script
 	_apply_size_unlocker()
+	initialize()
+	dependency_check_script.queue_free()
 
 func initialize():
 	if !in_lobby():
@@ -46,7 +33,7 @@ func initialize():
 		print(prefix, "No player instance found yet. Waiting...")
 
 func _apply_size_unlocker():
-	var has_unlocker = _check_for_size_unlocker()
+	var has_unlocker = dependency_check_script._check_for_size_unlocker()  # Call the method from dependency_check.gd
 	if has_unlocker:
 		print(prefix, "SizeUnlocker detected: Using extended size limits.")
 		size_min = 0.1
@@ -55,27 +42,6 @@ func _apply_size_unlocker():
 		print(prefix, "SizeUnlocker not detected: Using default size limits.")
 		size_min = 0.6
 		size_max = 1.4
-
-func _check_for_size_unlocker() -> bool:
-	var gdweave_dir = _get_gdweave_dir()
-	var size_unlocker_dir = gdweave_dir.plus_file("mods")
-	var folder_override = _get_folder_override()
-	if folder_override != "":
-		size_unlocker_dir = size_unlocker_dir.plus_file("nowaha-SizeUnlocker")
-	else:
-		size_unlocker_dir = size_unlocker_dir.plus_file("SizeUnlocker")
-	var manifest_path = size_unlocker_dir.plus_file("manifest.json")
-	print(prefix, "Checking manifest at: ", manifest_path)
-	return _check_manifest(manifest_path, "SizeUnlocker ")
-
-func _check_manifest(manifest_path: String, api_name: String) -> bool:
-	var file = File.new()
-	if file.file_exists(manifest_path):
-		print(prefix, api_name, "manifest found!")
-		return true
-	else:
-		print(prefix, api_name, "manifest not found.")
-		return false
 
 func get_player_node():
 	return get_tree().current_scene.get_node_or_null("Viewport/main/entities/player")
@@ -120,7 +86,6 @@ func start_save_timer():
 	if save_timer:
 		save_timer.stop()
 		save_timer.queue_free()
-
 	save_timer = Timer.new()
 	save_timer.wait_time = IDLE_SAVE_DELAY
 	save_timer.one_shot = true
