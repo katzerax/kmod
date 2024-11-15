@@ -8,19 +8,18 @@ Small collection of Webfishing features
 
 You can enable or disable any of the features using the config file located under ```GDWeave/configs/KMod.json```. This will only generate after the first time launching the game with this mod installed. This can be done manually by editing the json, or through [Hook Line & Sinker](https://github.com/pyoidzzz/HLSRewritten) through the config editor, or through [TackleBox](https://github.com/puppy-girl/TackleBox)'s in game mod menu (requires restart to apply). 
 
+## Installation Method 1: r2modman
+Download the latest release of r2modman:
+https://github.com/ebkr/r2modmanPlus/releases
 
-## Installation Method 1: Hook Line & Sinker
+Search "WEBFISHING". Webfishing should appear. Load that game on whatever profile, default works. Search for "KMod" in the mods browser section, click install, install latest with dependencies.
+
+## Installation Method 2: Hook Line & Sinker
 Download Hook Line & Sinker: https://github.com/pyoidzzz/HLSRewritten
 
 Follow the steps to set game installation path, install .NET 8.0 and then install GDWeave. 
 
 Navigate to Available Mods in HLS, click on KMod (search for KMod if necessary), click install. This will install the mod correctly and you do not need to do anything further. It takes the latest release from the Thunderstore page.
-
-## Installation Method 2: r2modman
-Download the latest release of r2modman:
-https://github.com/ebkr/r2modmanPlus/releases
-
-Search "WEBFISHING". Webfishing should appear. Load that game on whatever profile, default works. Search for "KMod" in the mods browser section, click install, install latest with dependencies.
 
 ## Installation Method 3: Manual
 Requires GDWeave https://github.com/NotNite/GDWeave
