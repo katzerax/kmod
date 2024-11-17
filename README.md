@@ -10,52 +10,12 @@ Small collection of Webfishing features
 You can enable or disable any of the features using the config file located under ```GDWeave/configs/KMod.json```. This will only generate after the first time launching the game with this mod installed. This can be done manually by editing the json, or through [Hook Line & Sinker](https://github.com/pyoidzzz/HLSRewritten) through the config editor, or through [TackleBox](https://github.com/puppy-girl/TackleBox)'s in game mod menu, or through r2modman's config editor. Modifying the config requires a game restart to apply changes. 
 
 ## Installing
-If you install with a mod manager, make sure you download .NET 8 sdk, and have the correct vc redist:
-
-.NET 8.0: https://dotnet.microsoft.com/en-us/download/dotnet/8.0. 
-
-A manual install doesn't necessarily need .NET unless you are using the optional dependencies.
-
-Installing through a mod manager from thunderstore will include TitleAPI as a dependency automatically.
-
-### Installation Method 1: r2modman
-Download the latest release of r2modman:
-https://github.com/ebkr/r2modmanPlus/releases
-
-Search "WEBFISHING". Webfishing should appear. Load that game on whatever profile, default works. Search for "KMod" in the mods browser section, click install, install latest with dependencies.
-
-### Installation Method 2: Hook Line & Sinker
-Download Hook Line & Sinker: https://github.com/pyoidzzz/HLSRewritten
-
-Follow the steps to set game installation path, install .NET 8.0 and then install GDWeave. 
-
-Navigate to Available Mods in HLS, click on KMod (search for KMod if necessary), click install. This will install the mod correctly and you do not need to do anything further. It takes the latest release from the Thunderstore page.
-
-### Installation Method 3: Gale Mod Manager
-Download Gale: https://thunderstore.io/c/lethal-company/p/Kesomannen/GaleModManager/
-
-After setting up gale, search for Webfishing. On the left, click on settings, and scroll down to "Override directory". Set this to your Webfishing steam install directory.
-
-Search for "KMod" in the "Browse Thunderstore Mods" page. Install with dependencies.
-
-### Installation Method 4: Manual
-Requires GDWeave https://github.com/NotNite/GDWeave
-
-Download the latest release KMod.zip file: https://github.com/katzerax/kmod/releases/latest/download/KMod.zip
-
-Navigate to your GDWeave installation, under GDWeave/mods/ place the unzipped folder containing the KMod.pck and manifest.json file within it.
-
-File structure should look like
-```GDWeave/mods/KMod/KMod.pck```
-
-**Make sure you didn't download the source code if installing manually, but the release. I gave you a link to the release above for a reason.**
-
-If you have installed manually, I would encourage you to download TitleAPI (listed below in optional dependencies).
-
-### Recommended but OPTIONAL dependencies (requires dotnet 8):
-TitleAPI (You'll see a title above my head if you see me in game): https://github.com/iamkikin-off/title_api
-SizeUnlocker (go beyond vanilla size changing limits & see other people beyond those limits): https://github.com/Nowaha/SizeUnlocker
-Tacklebox (just a utility): https://github.com/puppy-girl/TackleBox
+- [Installation Guide](https://github.com/katzerax/kmod/wiki/Installation)
+    - [r2modman](https://github.com/katzerax/kmod/wiki/Installation#r2modman)
+    - [Gale Mod Manager](https://github.com/katzerax/kmod/wiki/Installation#gale-mod-manager)
+    - [Hook Line & Sinker](https://github.com/katzerax/kmod/wiki/Installation#hook-line--sinker)
+    - [Manual](https://github.com/katzerax/kmod/wiki/Installation#manual)
+- [Optional Dependencies](https://github.com/katzerax/kmod/wiki/Installation#optional-dependencies)
 
 ## Contributing
 ### Setting up a Developer Instance
