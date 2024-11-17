@@ -21,7 +21,14 @@ Follow the steps to set game installation path, install .NET 8.0 and then instal
 
 Navigate to Available Mods in HLS, click on KMod (search for KMod if necessary), click install. This will install the mod correctly and you do not need to do anything further. It takes the latest release from the Thunderstore page.
 
-## Installation Method 3: Manual
+## Installation Method 3: Gale Mod Manager
+Download Gale: https://thunderstore.io/c/lethal-company/p/Kesomannen/GaleModManager/
+
+After setting up gale, search for Webfishing. On the left, click on settings, and scroll down to "Override directory". Set this to your Webfishing steam install directory.
+
+Search for "KMod" in the "Browse Thunderstore Mods" page. Install with dependencies.
+
+## Installation Method 4: Manual
 Requires GDWeave https://github.com/NotNite/GDWeave
 
 Download the latest release KMod.zip file: https://github.com/katzerax/kmod/releases/latest/download/KMod.zip
