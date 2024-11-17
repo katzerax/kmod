@@ -3,8 +3,8 @@ Small collection of Webfishing features.
 
 ## Current features as of 1.6.0:
 ### **SizeChanger**  
-  - Allows you to change your size by holding `comma` or `period`.  
-  - Reset your size with `slash`.  
+  - Allows you to change your size by holding `,` (comma) or `.` (period).  
+  - Reset your size with `/` (slash).  
   - Saves player size 6 seconds after the last size change.  
   - Automatically loads player size when connecting to a lobby.  
   - **UPDATE (Game Version 1.09)**  
