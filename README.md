@@ -3,32 +3,42 @@ Small collection of Webfishing features
 
 ### Current features as of 1.6.0:
 - **SizeChanger**: Change size by holding comma or period. Reset with slash. Saves player size after 6 seconds have passed after changing size. Loads player size on lobby connect.
-- - **UPDATE AS OF GAME VERSION 1.09**: Because of newly built in game limitations on size, the player can only shrink to a player size of 0.6 or grow to a player size of 1.4 just using gdscript. This is still outside of the range you can get with sodas, but is not close to the original range of size changing. I added support in 1.5.0 for the mod [SizeUnlocker](https://github.com/Nowaha/SizeUnlocker). This will let you go beyond the current vanilla limitations, and is required if you want to see other players beyond those sizes.
+   - **UPDATE AS OF GAME VERSION 1.09**: Because of newly built in game limitations on size, the player can only shrink to a player size of 0.6 or grow to a player size of 1.4 just using gdscript. This is still outside of the range you can get with sodas, but is not close to the original range of size changing. I added support in 1.5.0 for the mod [SizeUnlocker](https://github.com/Nowaha/SizeUnlocker). This will let you go beyond the current vanilla limitations, and is required if you want to see other players beyond those sizes.
+
 - **KeybindFix**: Open and Close OptionsMenu on boot. This loads in custom key binds that the game otherwise waits for you to open your options menu to initialize. Not impactful to performance.
 
-You can enable or disable any of the features using the config file located under ```GDWeave/configs/KMod.json```. This will only generate after the first time launching the game with this mod installed. This can be done manually by editing the json, or through [Hook Line & Sinker](https://github.com/pyoidzzz/HLSRewritten) through the config editor, or through [TackleBox](https://github.com/puppy-girl/TackleBox)'s in game mod menu (requires restart to apply). 
+You can enable or disable any of the features using the config file located under ```GDWeave/configs/KMod.json```. This will only generate after the first time launching the game with this mod installed. This can be done manually by editing the json, or through [Hook Line & Sinker](https://github.com/pyoidzzz/HLSRewritten) through the config editor, or through [TackleBox](https://github.com/puppy-girl/TackleBox)'s in game mod menu, or through r2modman's config editor. Modifying the config requires a game restart to apply changes. 
 
-## Installation Method 1: r2modman
+## Installing
+If you install with a mod manager, make sure you download .NET 8 sdk, and have the correct vc redist:
+
+.NET 8.0: https://dotnet.microsoft.com/en-us/download/dotnet/8.0. 
+
+A manual install doesn't necessarily need .NET unless you are using the optional dependencies.
+
+Installing through a mod manager from thunderstore will include TitleAPI as a dependency automatically.
+
+### Installation Method 1: r2modman
 Download the latest release of r2modman:
 https://github.com/ebkr/r2modmanPlus/releases
 
 Search "WEBFISHING". Webfishing should appear. Load that game on whatever profile, default works. Search for "KMod" in the mods browser section, click install, install latest with dependencies.
 
-## Installation Method 2: Hook Line & Sinker
+### Installation Method 2: Hook Line & Sinker
 Download Hook Line & Sinker: https://github.com/pyoidzzz/HLSRewritten
 
 Follow the steps to set game installation path, install .NET 8.0 and then install GDWeave. 
 
 Navigate to Available Mods in HLS, click on KMod (search for KMod if necessary), click install. This will install the mod correctly and you do not need to do anything further. It takes the latest release from the Thunderstore page.
 
-## Installation Method 3: Gale Mod Manager
+### Installation Method 3: Gale Mod Manager
 Download Gale: https://thunderstore.io/c/lethal-company/p/Kesomannen/GaleModManager/
 
 After setting up gale, search for Webfishing. On the left, click on settings, and scroll down to "Override directory". Set this to your Webfishing steam install directory.
 
 Search for "KMod" in the "Browse Thunderstore Mods" page. Install with dependencies.
 
-## Installation Method 4: Manual
+### Installation Method 4: Manual
 Requires GDWeave https://github.com/NotNite/GDWeave
 
 Download the latest release KMod.zip file: https://github.com/katzerax/kmod/releases/latest/download/KMod.zip
@@ -39,6 +49,13 @@ File structure should look like
 ```GDWeave/mods/KMod/KMod.pck```
 
 **Make sure you didn't download the source code if installing manually, but the release. I gave you a link to the release above for a reason.**
+
+If you have installed manually, I would encourage you to download TitleAPI (listed below in optional dependencies).
+
+### Recommended but OPTIONAL dependencies (requires dotnet 8):
+TitleAPI (You'll see a title above my head if you see me in game): https://github.com/iamkikin-off/title_api
+SizeUnlocker (go beyond vanilla size changing limits & see other people beyond those limits): https://github.com/Nowaha/SizeUnlocker
+Tacklebox (just a utility): https://github.com/puppy-girl/TackleBox
 
 ## Contributing
 ### Setting up a Developer Instance
