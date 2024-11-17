@@ -1,15 +1,32 @@
 # KMod
-Small collection of Webfishing features
+Small collection of Webfishing features.
 
-### Current features as of 1.6.0:
-- **SizeChanger**: Change size by holding comma or period. Reset with slash. Saves player size after 6 seconds have passed after changing size. Loads player size on lobby connect.
-   - **UPDATE AS OF GAME VERSION 1.09**: Because of newly built in game limitations on size, the player can only shrink to a player size of 0.6 or grow to a player size of 1.4 just using gdscript. This is still outside of the range you can get with sodas, but is not close to the original range of size changing. I added support in 1.5.0 for the mod [SizeUnlocker](https://github.com/Nowaha/SizeUnlocker). This will let you go beyond the current vanilla limitations, and is required if you want to see other players beyond those sizes.
+## Current features as of 1.6.0:
+### **SizeChanger**  
+  - Allows you to change your size by holding `comma` or `period`.  
+  - Reset your size with `slash`.  
+  - Saves player size 6 seconds after the last size change.  
+  - Automatically loads player size when connecting to a lobby.  
+  - **UPDATE (Game Version 1.09)**  
+    - Due to new in-game limitations, size can only shrink to **0.6** or grow to **1.4** using GDScript.  
+    - This range is beyond what you can achieve with sodas but smaller than the original size-changing range.  
+    - Support for the mod [SizeUnlocker](https://github.com/Nowaha/SizeUnlocker) was added in **[v1.5.0](https://github.com/katzerax/kmod/releases/tag/1.5.0)** to bypass these limitations.
+      - SizeUnlocker is required if you wish to see other players beyond these sizes.  
+### **KeybindFix**
+  - Automatically opens and closes the Options Menu on game boot.
+  - This ensures custom keybinds load, which the game otherwise delays until the Options Menu is manually opened.  
 
-- **KeybindFix**: Open and Close OptionsMenu on boot. This loads in custom key binds that the game otherwise waits for you to open your options menu to initialize. Not impactful to performance.
+## Configuration
+You can enable or disable any feature using the configuration file located at:  
+`GDWeave/configs/KMod.json`.  
 
-You can enable or disable any of the features using the config file located under ```GDWeave/configs/KMod.json```. This will only generate after the first time launching the game with this mod installed. This can be done manually by editing the json, or through [Hook Line & Sinker](https://github.com/pyoidzzz/HLSRewritten) through the config editor, or through [TackleBox](https://github.com/puppy-girl/TackleBox)'s in game mod menu, or through [r2modman](https://github.com/ebkr/r2modmanPlus/releases/latest)'s config editor. 
+- The configuration file is generated automatically on the first game launch with the mod installed.  
+- You can edit the configuration manually or use any of the following tools:  
+  - [Hook Line & Sinker](https://github.com/pyoidzzz/HLSRewritten)'s config editor.  
+  - [TackleBox](https://github.com/puppy-girl/TackleBox)'s in-game mod menu.  
+  - [r2modman](https://github.com/ebkr/r2modmanPlus/releases/latest)'s config editor.  
 
-Modifying the config requires a game restart to apply changes. 
+**Note**: Modifying the configuration requires a game restart to apply changes.  
 
 ## Installing:
 - [Installation Guide](https://github.com/katzerax/kmod/wiki/Installation)
