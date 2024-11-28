@@ -21,10 +21,9 @@ You can enable or disable any feature using the configuration file located at:
 `GDWeave/configs/KMod.json`.  
 
 - The configuration file is generated automatically on the first game launch with the mod installed.  
-- You can edit the configuration manually or use any of the following tools:  
-  - [Hook Line & Sinker](https://github.com/pyoidzzz/HLSRewritten)'s config editor.  
-  - [TackleBox](https://github.com/puppy-girl/TackleBox)'s in-game mod menu.  
-  - [r2modman](https://github.com/ebkr/r2modmanPlus/releases/latest)'s config editor.  
+- You can edit the configuration manually or use the following tools:   
+  - [TackleBox](https://github.com/puppy-girl/TackleBox)'s in-game mod menu. (Highly Recommended) 
+  - [r2modman](https://github.com/ebkr/r2modmanPlus/releases/latest)'s config editor.
 
 **Note**: Modifying the configuration requires a game restart to apply changes.  
 
