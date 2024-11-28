@@ -1,7 +1,15 @@
 # KMod
 Small collection of Webfishing features.
 
-## Current features as of 1.6.0:
+## Installing
+- [Installation Guide](https://github.com/katzerax/kmod/wiki/Installation)
+    - [r2modman](https://github.com/katzerax/kmod/wiki/Installation#r2modman)
+    - [Gale Mod Manager](https://github.com/katzerax/kmod/wiki/Installation#gale-mod-manager)
+    - [Manual](https://github.com/katzerax/kmod/wiki/Installation#manual)
+    - [Rod n' Mod](https://github.com/katzerax/kmod/wiki/Installation#rod-n-mod)
+- [Optional Dependencies](https://github.com/katzerax/kmod/wiki/Installation#optional-dependencies)
+
+## Current features as of 1.7.0:
 ### **SizeChanger**  
   - Allows you to change your size by holding `,` (comma) or `.` (period).  
   - Reset your size with `/` (slash).  
@@ -30,15 +38,7 @@ You can enable or disable any feature using the configuration file located at:
   - [TackleBox](https://github.com/puppy-girl/TackleBox)'s in-game mod menu. (Highly Recommended) 
   - [r2modman](https://github.com/ebkr/r2modmanPlus/releases/latest)'s config editor.
 
-**Note**: Modifying the configuration requires a game restart to apply changes.  
-
-## Installing
-- [Installation Guide](https://github.com/katzerax/kmod/wiki/Installation)
-    - [r2modman](https://github.com/katzerax/kmod/wiki/Installation#r2modman)
-    - [Gale Mod Manager](https://github.com/katzerax/kmod/wiki/Installation#gale-mod-manager)
-    - [Manual](https://github.com/katzerax/kmod/wiki/Installation#manual)
-    - [Rod n' Mod](https://github.com/katzerax/kmod/wiki/Installation#rod-n-mod)
-- [Optional Dependencies](https://github.com/katzerax/kmod/wiki/Installation#optional-dependencies)
+**Note**: Modifying the configuration requires a game restart to apply changes.
 
 ## Contributing:
 - [Setting up a Developer Environment](https://github.com/katzerax/kmod/wiki/Contributing#setting-up-a-developer-environment)
