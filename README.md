@@ -27,12 +27,12 @@ You can enable or disable any feature using the configuration file located at:
 
 **Note**: Modifying the configuration requires a game restart to apply changes.  
 
-## Installing:
+## Installing
 - [Installation Guide](https://github.com/katzerax/kmod/wiki/Installation)
     - [r2modman](https://github.com/katzerax/kmod/wiki/Installation#r2modman)
     - [Gale Mod Manager](https://github.com/katzerax/kmod/wiki/Installation#gale-mod-manager)
-    - [Hook Line & Sinker](https://github.com/katzerax/kmod/wiki/Installation#hook-line--sinker)
     - [Manual](https://github.com/katzerax/kmod/wiki/Installation#manual)
+    - [Rod n' Mod](https://github.com/katzerax/kmod/wiki/Installation#rod-n-mod)
 - [Optional Dependencies](https://github.com/katzerax/kmod/wiki/Installation#optional-dependencies)
 
 ## Contributing:
