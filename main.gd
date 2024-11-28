@@ -11,7 +11,9 @@ func _ready():
 	add_child(config_handler)
 	config_handler.load_config()
 	var config_data = config_handler.config_data
-	
+
+	config_handler.queue_free()
+
 	if config_data.has("SizeChanger") and config_data["SizeChanger"]:
 		var size_changer = preload("res://mods/KMod/Scripts/SizeChanger/size_changer.gd").new()
 		add_child(size_changer)

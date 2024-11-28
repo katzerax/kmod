@@ -4,7 +4,8 @@ var prefix = "[KMOD.config_handler] "
 var config_data = {}
 var default_config_data = {
 	"SizeChanger": true,
-	"KeybindFix": true
+	"KeybindFix": true,
+	"OverrideDependencyChecks": false
 }
 
 func _get_gdweave_dir() -> String:
