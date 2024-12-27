@@ -22,12 +22,7 @@ Small collection of Webfishing features.
       - SizeUnlocker is required if you wish to see other players beyond these sizes.  
 ### **KeybindFix**
   - Automatically opens and closes the Options Menu on game boot.
-  - This ensures custom keybinds load, which the game otherwise delays until the Options Menu is manually opened.
-
-### Experimental: **OverrideDependencyChecks**
-  - Overrides Dependency checks to always assume the dependencies exist. Might cause issues if used without:
-    - [TitleAPI](https://github.com/iamkikin-off/title_api)
-    - [SizeUnlocker](https://github.com/Nowaha/SizeUnlocker)
+  - This ensures custom keybinds load, which the game otherwise delays until the Options Menu is manually opened.  
 
 ## Configuration
 You can enable or disable any feature using the configuration file located at:  
