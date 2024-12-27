@@ -1,15 +1,17 @@
 # KMod
 Small collection of Webfishing features.
 
+See [the wiki](https://github.com/katzerax/kmod/wiki) for detailed docs on installing, contributing, and mod development through solely GDScript.
 ## Installing
 - [Installation Guide](https://github.com/katzerax/kmod/wiki/Installation)
     - [r2modman](https://github.com/katzerax/kmod/wiki/Installation#r2modman)
     - [Gale Mod Manager](https://github.com/katzerax/kmod/wiki/Installation#gale-mod-manager)
+    - [Buoy](https://github.com/katzerax/kmod/wiki/Installation#buoy-mod-manager)
     - [Manual](https://github.com/katzerax/kmod/wiki/Installation#manual)
     - [Rod n' Mod](https://github.com/katzerax/kmod/wiki/Installation#rod-n-mod)
 - [Optional Dependencies](https://github.com/katzerax/kmod/wiki/Installation#optional-dependencies)
 
-## Current features as of 1.7.0:
+## Current features as of 1.6.0:
 ### **SizeChanger**  
   - Allows you to change your size by holding `,` (comma) or `.` (period).  
   - Reset your size with `/` (slash).  
