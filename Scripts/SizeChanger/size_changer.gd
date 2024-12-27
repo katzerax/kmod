@@ -14,20 +14,11 @@ var size_min = 0.6
 var size_max = 1.4
 var dependency_check_script : Node = null
 
-var override_dependencies = false
-
 func _ready():
-	var config_handler = preload("res://mods/KMod/Scripts/ConfigHandler/config_handler.gd").new()
-	config_handler.load_config()
-	var config_data = config_handler.config_data
-	override_dependencies = config_data.has("OverrideDependencyChecks") and config_data["OverrideDependencyChecks"]
-	if override_dependencies:
-		print(prefix, "OverrideDependencyChecks enabled. Assuming all dependencies are present.")
 	dependency_check_script = preload("res://mods/KMod/Scripts/DependencyChecks/dependency_checks.gd").new()
 	_apply_size_unlocker()
-	config_handler.queue_free()
-	dependency_check_script.queue_free()
 	initialize()
+	dependency_check_script.queue_free()
 
 func initialize():
 	if !in_lobby():
@@ -42,11 +33,6 @@ func initialize():
 		print(prefix, "No player instance found yet. Waiting...")
 
 func _apply_size_unlocker():
-	if override_dependencies:
-		print(prefix, "Dependencies overridden. Using extended size limits.")
-		size_min = 0.1
-		size_max = 10.0
-		return
 	var has_unlocker = dependency_check_script._check_for_size_unlocker()
 	if has_unlocker:
 		print(prefix, "SizeUnlocker detected: Using extended size limits.")

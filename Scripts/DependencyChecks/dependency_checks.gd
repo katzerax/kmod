@@ -34,11 +34,8 @@ func _check_for_size_unlocker() -> bool:
 		if _get_folder_override() != "":
 			manifest_path = gdweave_dir.plus_file("mods").plus_file("nowaha-SizeUnlocker").plus_file("manifest.json")
 		else:
-			var nowaha_manifest_path = gdweave_dir.plus_file("mods").plus_file("nowaha.SizeUnlocker").plus_file("manifest.json")
-			if _check_manifest(nowaha_manifest_path, "SizeUnlocker"):
-				return true
 			manifest_path = gdweave_dir.plus_file("mods").plus_file("SizeUnlocker").plus_file("manifest.json")
-		return _check_manifest(manifest_path, "SizeUnlocker")
+		return _check_manifest(manifest_path, "SizeUnlocker ")
 	return false
 
 func _check_for_title_api() -> bool:
@@ -48,9 +45,6 @@ func _check_for_title_api() -> bool:
 		if _get_folder_override() != "":
 			manifest_path = gdweave_dir.plus_file("mods").plus_file("LoafWF-TitleAPI").plus_file("manifest.json")
 		else:
-			var loafwf_manifest_path = gdweave_dir.plus_file("mods").plus_file("LoafWF.TitleAPI").plus_file("manifest.json")
-			if _check_manifest(loafwf_manifest_path, "TitleAPI"):
-				return true
 			manifest_path = gdweave_dir.plus_file("mods").plus_file("TitleAPI").plus_file("manifest.json")
 		return _check_manifest(manifest_path, "TitleAPI ")
 	return false
